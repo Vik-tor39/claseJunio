@@ -1,19 +1,20 @@
 #include<stdio.h>
+#include<math.h>
 
-int multiplicador(int n);
+int multiplicador(int *n);
 
 int main(){
-    int num, result;
+    int *num, valor, result;
     printf("Ingrese un numero cuyo cubo desee conocer:\n");
-    scanf("%d",&num);
-    result = multiplicador(num);
+    scanf("%d",&valor);
+    num = &valor;
+    result = multiplicador(&num);
     printf("Su numero elevado al cubo es: %d",result);
     return 0;
 }
-int multiplicador(int n){
-    int resul=1;
-    for(int i=0; i<3; i++){
-       resul*=n;
-    }
+
+int multiplicador(int *n){
+    int resul; 
+    resul= pow(*n,3);
     return resul;
 }
